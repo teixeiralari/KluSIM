@@ -74,13 +74,13 @@ cdef class VPTree:
         self._knn_search(self.root, results, target, k)
         return results
 
-    cdef _knn_search(self, VPTreeNode node, list results, cnp.float64_t[:] target, int near_u):
+    cdef _knn_search(self, VPTreeNode node, list results, cnp.float64_t[:] target, int p):
         if node is None:
             return
 
         distance = helpers.euclidean_distance(target, node.pivot)
 
-        if len(results) < near_u:
+        if len(results) < p:
             results.append([node.index, distance])
             results.sort(key=lambda x: x[1], reverse=True)
 
@@ -89,10 +89,10 @@ cdef class VPTree:
             results.sort(key=lambda x: x[1], reverse=True)
 
         if distance - node.threshold < results[0][1]:
-            self._knn_search(node.left, results, target, near_u)
+            self._knn_search(node.left, results, target, p)
 
         if distance + results[0][1] >= node.threshold:
-            self._knn_search(node.right, results, target, near_u)
+            self._knn_search(node.right, results, target, p)
 
     def range_query(self, cnp.float64_t[:] query_point, double radius):
         distances, objs = [], []

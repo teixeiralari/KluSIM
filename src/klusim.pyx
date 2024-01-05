@@ -30,7 +30,7 @@ cdef class KluSIM():
         self.medoid_indices_ = medoids
         self.medoids_is_set = True
 
-    def swap(self, cnp.float64_t[:,:] X, int near_u=3):
+    def swap(self, cnp.float64_t[:,:] X, int p=3):
         self.N = X.shape[0]
 
         if self.medoids_is_set:
@@ -52,7 +52,7 @@ cdef class KluSIM():
                     dataset_idx,
                     total_deviation,
                     self.n_clusters,
-                    near_u
+                    p
                 )
 
             if swap:
@@ -78,7 +78,7 @@ cdef class KluSIM():
             cnp.int64_t[:] dataset_idx,  
             cnp.float64_t total_deviation, 
             int k, 
-            int near_u
+            int p
         ):
 
         cdef cnp.float64_t best_cost = total_deviation
@@ -89,10 +89,10 @@ cdef class KluSIM():
         for m in range(k):
             id_i = medoids_idxs[m]
 
-            centroid = np.mean(X.base[cluster_idx[m]], axis=0)
-            medoids_candidates = self.tree.knn(centroid, near_u)
+            u_i = np.mean(X.base[cluster_idx[m]], axis=0)
+            S_p = self.tree.knn(u_i, p)
         
-            for o_j in medoids_candidates:
+            for o_j in S_p:
     
                 medoids_idxs[m] = o_j[0]
 

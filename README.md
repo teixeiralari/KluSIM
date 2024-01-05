@@ -68,7 +68,7 @@ To run the *KluSIM* algorithm, follow these steps:
 
 ### Usage Example Script
 
-For your convenience, we have provided a script (*usage_example.py*) that demonstrates the usage of the *KluSIM* algorithm with a sample dataset. Simply run the script to see the algorithm in action:
+We have provided a script (*usage_example.py*) on how to use the *KluSIM* algorithm with a sample dataset. To run it, execute the following command:
 
 ```bash
     python3 usage_example.py
