@@ -2,6 +2,35 @@
 
 This python package implements the KluSIM, an improvement of the SWAP step of k-medoids clustering.
 
+## License Agreement and Citation Request
+
+In the case of using the KluSIM algorithm, or any algorithm derived from it, one should acknowledge its creators by citing the following paper:
+
+> [\[Teixeira *et al.*, 2024\]](https://www.scitepress.org/Link.aspx?doi=10.5220/0012599900003690) TEIXEIRA, L.; ELEUTéRIO, I.; CAZZOLATO, M.; A., G. M.; TRAINA, A.; TRAINA-JR., C.
+Klusim: Speeding up k-medoids clustering over dimensional data with metric access method.
+In: Proceedings of the 26th International Conference on Enterprise Information Systems.
+[s.n.], 2024. v. 1, p. 73–84. ISBN 978-989-758-692-7. ISSN 2184-4992. DOI: 10.5220/0012599900003690.
+
+Bibtex:
+
+```
+@INPROCEEDINGS{klusim,
+  author={Teixeira, L. and Eleutério, I. and Cazzolato, M. and Gutierrez M. A. and Traina, A. and Traina-Jr., C.},
+  booktitle={Proceedings of the 26th International Conference on Enterprise Information Systems}, 
+  title={KluSIM: Speeding up K-Medoids Clustering over Dimensional Data with Metric Access Method}, 
+  year={2024},
+  volume={1},
+  number={},
+  pages={73-84},
+  keywords={Dimensional Data;k-medoids;Clustering;Indexing; Metric Access Method},
+  issn={2184-4992},
+  isbn = {978-989-758-692-7},
+  url = {https://doi.org/10.5220/0012599900003690},
+  doi = {10.5220/0012599900003690}
+}
+
+```
+
 ## Installation
 
 Make sure you have Python 3 installed. Then, execute the following commands:
